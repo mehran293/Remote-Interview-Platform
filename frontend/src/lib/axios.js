@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const isProd = window.location.hostname !== "localhost";
+
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL + "/api",
+  baseURL: isProd 
+    ? "https://remote-interview-platform-3f6i.onrender.com/api"
+    : "http://localhost:3000/api",
   withCredentials: true,
 });
 
